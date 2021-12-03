@@ -3,13 +3,13 @@ export async function handleRequest(request: Request): Promise<Response> {
   const auth_token = headers.get('x-auth');
 
   if(auth_token !== undefined && auth_token === WEB_AUTH) {
-    const event = (headers.get('x-event') || 'down').toString().toLowerCase() === 'down'?'down':'up';
-    const name = headers.get('x-service-name');
-    const tags = headers.get('x-tags');
+    const event = headers.get('x-event') || 'undefined';
+    const name = headers.get('x-service-name') || 'undefined';
+    const tags = headers.get('x-tags') || '';
 
     const payload: Record<string, string> = {
       chat_id: TELEGRAM_CHAT_ID,
-      text: `The check ${name} has gone ${event}!\n${tags}`
+      text: `The check ${name} has gone ${event}!\n\n${tags!==undefined?tags:''}`
     }
     const formBody = Object.keys(payload).map(
       key => encodeURIComponent(key) + '=' + encodeURIComponent(payload[key])
@@ -23,10 +23,10 @@ export async function handleRequest(request: Request): Promise<Response> {
         body: formBody
       }
     );
-    if(sendResult['ok'] === true) {
+    if(sendResult['ok']) {
       return new Response('Message sent.');
     } else {
-      return new Response('Failed to send message.<br>' + sendResult.toString());
+      return new Response(`Failed to send message.<br> ${sendResult.toString()}`);
     }
   } else {
     return new Response('Unauthorized', {
