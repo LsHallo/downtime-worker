@@ -11,6 +11,8 @@ Intended to be used with [healthchecks](https://github.com/healthchecks/healthch
 ![webhook config](misc/healthchecks-webhook.png)
 
 ### Running
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/LsHallo/downtime-worker)
+
 **First!!!** `wrangler login`
 
 #### Set secrets (Environment variables)
