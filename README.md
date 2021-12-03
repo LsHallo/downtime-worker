@@ -32,7 +32,7 @@ And then query `https://api.telegram.org/bot[key]/getUpdates`_
 `wrangler publish`  
 
 **GitHub Actions**  
-Set [secrets](settings/secrets/actions):  
+Set [secrets](../../settings/secrets/actions):  
 `CF_ACCOUNT_ID`: Your cloudflare account id  
 `CF_API_TOKEN`: Cloudflare api token with at leastworker access rights
 
