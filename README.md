@@ -24,10 +24,17 @@ _You can get the key by creating a chat with your bot (Follow BotFather instruct
 And then query `https://api.telegram.org/bot[key]/getUpdates`_
 
 #### Running Dev Version
+*Probably need to set `CF_ACCOUNT_ID` env variable when using more than one account.*  
 `wrangler dev`
 
 #### Publish
-`wrangler publish`
+**Local**  
+`wrangler publish`  
+
+**GitHub Actions**  
+Set [secrets](settings/secrets/actions):  
+`CF_ACCOUNT_ID`: Your cloudflare account id  
+`CF_API_TOKEN`: Cloudflare api token with at leastworker access rights
 
 #### Logs
 `wrangler tail`
