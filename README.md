@@ -33,7 +33,21 @@ And then query `https://api.telegram.org/bot[key]/getUpdates`_
 ___
 ### Running Dev Version
 *Probably need to set `CF_ACCOUNT_ID` env variable when using more than one account.*  
-`wrangler dev`
+<details>
+  <summary>Instructions</summary>
+  
+  ### Windows
+  ```powershell
+  setx CF_ACCOUNT_ID <account_id>
+  ```
+    
+  ### Unix
+  ```bash
+  export CF_ACCOUNT_ID=<account_id>
+  ```
+</details>
+
+Then run ```wrangler dev```
 
 
 ___

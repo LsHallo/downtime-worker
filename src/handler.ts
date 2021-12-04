@@ -5,11 +5,11 @@ export async function handleRequest(request: Request): Promise<Response> {
   if(auth_token !== undefined && auth_token === WEB_AUTH) {
     const event = headers.get('x-event') || 'undefined';
     const name = headers.get('x-service-name') || 'undefined';
-    const tags = headers.get('x-tags') || '';
+    const tags = headers.get('x-tags');
 
     const payload: Record<string, string> = {
       chat_id: TELEGRAM_CHAT_ID,
-      text: `The check ${name} has gone ${event}!\n\n${tags!==undefined?tags:''}`
+      text: `The check ${name} has gone ${event}!${tags!==undefined?'\n\n'+tags:''}`
     }
     const formBody = Object.keys(payload).map(
       key => encodeURIComponent(key) + '=' + encodeURIComponent(payload[key])
