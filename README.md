@@ -40,11 +40,13 @@ ___
   ```powershell
   setx CF_ACCOUNT_ID <account_id>
   ```
+  **You may need to restart you IDE for changes to take effect**
     
   ### Unix
   ```bash
   export CF_ACCOUNT_ID=<account_id>
   ```
+  **You may need to restart you IDE for changes to take effect**
 </details>
 
 Then run ```wrangler dev```
