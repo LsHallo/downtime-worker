@@ -9,7 +9,7 @@ export async function handleRequest(request: Request): Promise<Response> {
 
     const payload: Record<string, string> = {
       chat_id: TELEGRAM_CHAT_ID,
-      text: `The check ${name} has gone ${event}!${tags!==undefined?'\n\n'+tags:''}`
+      text: `The check ${name} has gone ${event}!${tags!==undefined?'\n\nTags: '+tags:''}`
     }
     const formBody = Object.keys(payload).map(
       key => encodeURIComponent(key) + '=' + encodeURIComponent(payload[key])

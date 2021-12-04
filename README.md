@@ -6,6 +6,13 @@ Uses `X-Service-Name`, `X-Event` and `X-Tags` for more info.
 - `X-Event`: What ever string you like your event to be. E.g.: 'Up', 'Down'  
 - `X-Tags`: Custom tags  
 
+The message has the following format:
+```
+The check [X-Service-Name] has gone [X-Event]!
+
+Tags: [X-Tags]
+```
+
 ### Healthchecks
 Intended to be used with [healthchecks](https://github.com/healthchecks/healthchecks) webhooks. Configure like this:
 ![webhook config](misc/healthchecks-webhook.png)
@@ -16,7 +23,7 @@ ___
 You can deploy directly:  
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/LsHallo/downtime-worker)
 
-When running locally you'll need to install wrangler `npm i -g @cloudflare/wrangler`.  
+When running locally you'll need to install wrangler `npm i -g @cloudflare/wrangler`  
 And then log in with your cloudflare account: `wrangler login`
 
 
